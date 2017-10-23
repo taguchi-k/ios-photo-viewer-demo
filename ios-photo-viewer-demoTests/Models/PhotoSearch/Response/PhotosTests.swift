@@ -11,7 +11,7 @@ import XCTest
 
 class PhotosTests: XCTestCase {
 
-    var photosResult: PhotoSearchResult?
+    var photosResult: SearchPhotoResult?
 
     override func setUp() {
         super.setUp()

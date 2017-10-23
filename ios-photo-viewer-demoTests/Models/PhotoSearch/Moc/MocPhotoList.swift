@@ -12,7 +12,7 @@ import ObjectMapper
 
 final class MocPhotoList {
 
-    func feachTestData() -> PhotoSearchResult{
+    func feachTestData() -> SearchPhotoResult{
 
         let bundle = Bundle(for: type(of: self))
 
@@ -20,7 +20,7 @@ final class MocPhotoList {
             let path = bundle.path(forResource: "flickr", ofType: "json"),
             let fileHandle = FileHandle(forReadingAtPath: path),
             let json = String(data: fileHandle.readDataToEndOfFile(), encoding: String.Encoding.utf8),
-            let searchResult = Mapper<PhotoSearchResult>().map(JSONString: json) else {
+            let searchResult = Mapper<SearchPhotoResult>().map(JSONString: json) else {
                 fatalError("テストデータが読み込めない")
         }
         return searchResult

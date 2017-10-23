@@ -1,5 +1,5 @@
 //
-//  SpyPhotoSearchLoadable.swift
+//  SpySearchPhotoLoadable.swift
 //  ios-photo-viewer-demoTests
 //
 //  Created by Kentaro on 2017/10/23.
@@ -9,12 +9,12 @@
 import XCTest
 @testable import ios_photo_viewer_demo
 
-final class SpyPhotoSearchLoadable: PhotoSearchLoadable {
+final class SpySearchPhotoLoadable: SearchPhotoLoadable {
 
-    var status: PhotoSearchStatus?
+    var status: SearchPhotoStatus?
     var asyncExpectation: XCTestExpectation?
 
-    func setStatus(status: PhotoSearchStatus) {
+    func setStatus(status: SearchPhotoStatus) {
 
         guard let expectation = asyncExpectation else {
             XCTFail("Delegateが正しく設定されていない")

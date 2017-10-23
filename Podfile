@@ -11,6 +11,7 @@ target 'ios-photo-viewer-demo' do
   pod 'ObjectMapper'
   pod 'SVProgressHUD'
   pod 'Kingfisher'
+  pod 'RealmSwift'
 
   target 'ios-photo-viewer-demoTests' do
     inherit! :search_paths
