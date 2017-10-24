@@ -9,10 +9,12 @@
 import Foundation
 import ObjectMapper
 
+/// 写真のモデル
 struct Photo: Mappable {
+
+    var id = ""
     var farm = 0
     var server = ""
-    var id = ""
     var secret = ""
 
     init?(map: Map){}
@@ -22,5 +24,20 @@ struct Photo: Mappable {
         server  <- map["server"]
         id      <- map["id"]
         secret  <- map["secret"]
+    }
+
+    /// 写真URLの文字列を返す
+    ///
+    /// - Returns: 写真URLの文字列
+    func photoURL() -> String {
+        return PhotoImageURLBuilder.create(photo: self)
+    }
+
+    /// UIImageをDate?に変換する
+    ///
+    /// - Parameter image: UIImage
+    /// - Returns: Date?
+    func imageData(image: UIImage) -> Data? {
+        return UIImagePNGRepresentation(image)
     }
 }
