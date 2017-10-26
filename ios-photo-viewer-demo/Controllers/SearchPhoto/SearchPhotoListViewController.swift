@@ -150,19 +150,21 @@ extension SearchPhotoListViewController: UICollectionViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        guard hasMorePhotoList() else { return }
-        nextloadPhotoList()
+        if scrollView.isScrollEnd() {
+            didScrollEnd()
+        }
     }
 
-    private func hasMorePhotoList() -> Bool {
+    private func didScrollEnd() {
 
-        if collectionView.contentOffset.y >=
-            (collectionView.contentSize.height - collectionView.bounds.height) {
-
-            if searchPhotoAPI.waiting(){ return false }
-            return searchPhotoAPI.isMoreRequest()
+        switch searchPhotoStatus {
+        case .loaded:
+            if searchPhotoAPI.isMoreRequest() && !searchPhotoAPI.waiting() {
+                nextloadPhotoList()
+            }
+        default:
+            break
         }
-        return false
     }
 
     private func nextloadPhotoList() {
