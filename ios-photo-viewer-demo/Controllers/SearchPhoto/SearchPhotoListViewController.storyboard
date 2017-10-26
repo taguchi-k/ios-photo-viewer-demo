@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p3i-Ux-FSG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CpJ-iq-WBy">
+            <objects>
+                <tabBarController id="p3i-Ux-FSG" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zJM-4a-MDT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="IDq-dM-6PY" kind="relationship" relationship="viewControllers" id="hit-3k-ksb"/>
+                        <segue destination="uu8-2t-nFb" kind="relationship" relationship="viewControllers" id="cHV-2P-Wgq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLZ-Q0-wCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1809" y="217"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JD1-mT-XzZ">
+            <objects>
+                <navigationController id="IDq-dM-6PY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="yi8-QP-FHp"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qDs-Hj-NWA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nxw-d2-V3m" kind="relationship" relationship="rootViewController" id="iIB-gq-iPA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSc-45-x4X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1031" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e3D-QY-huD">
+            <objects>
+                <navigationController id="uu8-2t-nFb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="MFh-Mz-ZZY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1UN-zd-gRO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2Wi-31-Xzp" kind="relationship" relationship="rootViewController" id="QDH-di-P5S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgj-fe-RG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1810" y="926"/>
+        </scene>
+        <!--FavoritePhotoListViewController-->
+        <scene sceneID="z1i-3Y-xQd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavoritePhotoListViewController" id="2Wi-31-Xzp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ral-61-mar"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFk-uj-SqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1148" y="504"/>
+        </scene>
+        <!--写真検索-->
+        <scene sceneID="1Ff-Aq-eNW">
+            <objects>
+                <viewController storyboardIdentifier="SearchPhotoListViewController" title="写真検索" id="nxw-d2-V3m" customClass="SearchPhotoListViewController" customModule="ios_photo_viewer_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hvO-DJ-5k7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キーワードを入力して検索！" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zyQ-he-5Nd">
+                                <rect key="frame" x="20" y="84" width="255" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="nxw-d2-V3m" id="q3x-Bp-0Ep"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3d-ri-B1f">
+                                <rect key="frame" x="295" y="84" width="60" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="UEm-ad-NaJ"/>
+                                </constraints>
+                                <state key="normal" title="検索">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isExclusiveTouch" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchDidTap" destination="nxw-d2-V3m" eventType="touchUpInside" id="tJO-Gq-aay"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-hX-WMi">
+                                <rect key="frame" x="0.0" y="124" width="375" height="494"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="oFV-yT-Qoa">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="4"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchPhotoListCollectionViewCell" id="idT-Mu-wk7" customClass="SearchPhotoListCollectionViewCell" customModule="ios_photo_viewer_demo" customModuleProvider="target">
+                                        <rect key="frame" x="4" y="4" width="184" height="253"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="184" height="253"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Fi-kz-yH1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="203"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWe-Fi-LV4">
+                                                    <rect key="frame" x="0.0" y="203" width="184" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Sz9-gB-mPd"/>
+                                                    </constraints>
+                                                    <state key="normal" title="お気に入り登録"/>
+                                                    <state key="selected" title="お気に入り解除"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isExclusiveTouch" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedFavoriteButton:" destination="idT-Mu-wk7" eventType="touchUpInside" id="Pdt-eF-zTY"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="JWe-Fi-LV4" secondAttribute="trailing" id="BwH-Vb-tj2"/>
+                                            <constraint firstAttribute="trailing" secondItem="2Fi-kz-yH1" secondAttribute="trailing" id="Ree-sF-1Oz"/>
+                                            <constraint firstItem="2Fi-kz-yH1" firstAttribute="top" secondItem="idT-Mu-wk7" secondAttribute="top" id="erv-Q9-3YX"/>
+                                            <constraint firstAttribute="bottom" secondItem="JWe-Fi-LV4" secondAttribute="bottom" id="ixI-lB-a6L"/>
+                                            <constraint firstItem="JWe-Fi-LV4" firstAttribute="top" secondItem="2Fi-kz-yH1" secondAttribute="bottom" id="jcz-7e-2Gw"/>
+                                            <constraint firstItem="JWe-Fi-LV4" firstAttribute="leading" secondItem="idT-Mu-wk7" secondAttribute="leading" id="uxg-2A-5nA"/>
+                                            <constraint firstItem="2Fi-kz-yH1" firstAttribute="leading" secondItem="idT-Mu-wk7" secondAttribute="leading" id="vtk-JU-ZJ4"/>
+                                        </constraints>
+                                        <size key="customSize" width="184" height="253"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="favoriteButton" destination="JWe-Fi-LV4" id="zOA-dq-pX5"/>
+                                            <outlet property="photoImageView" destination="2Fi-kz-yH1" id="o7K-YC-be5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchPhotoListIllegalCollectionViewCell" id="ZYx-ur-egc" customClass="SearchPhotoListIllegalCollectionViewCell" customModule="ios_photo_viewer_demo" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="10.5" width="170" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="240"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glr-jK-DI8">
+                                                    <rect key="frame" x="20" y="10" width="130" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="glr-jK-DI8" secondAttribute="trailing" constant="20" id="KGL-vF-h09"/>
+                                            <constraint firstItem="glr-jK-DI8" firstAttribute="top" secondItem="ZYx-ur-egc" secondAttribute="top" constant="10" id="Orj-l8-PIB"/>
+                                            <constraint firstItem="glr-jK-DI8" firstAttribute="leading" secondItem="ZYx-ur-egc" secondAttribute="leading" constant="20" id="PKk-xF-IhB"/>
+                                            <constraint firstItem="glr-jK-DI8" firstAttribute="centerX" secondItem="ZYx-ur-egc" secondAttribute="centerX" id="UWi-s7-2YF"/>
+                                        </constraints>
+                                        <size key="customSize" width="170" height="240"/>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="glr-jK-DI8" id="fhx-c0-fDk"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="nxw-d2-V3m" id="brd-rX-E5D"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zyQ-he-5Nd" firstAttribute="leading" secondItem="vyj-Hy-ARN" secondAttribute="leading" constant="20" id="62r-ew-qTv"/>
+                            <constraint firstItem="b3d-ri-B1f" firstAttribute="centerY" secondItem="zyQ-he-5Nd" secondAttribute="centerY" id="Izo-XZ-xqN"/>
+                            <constraint firstItem="vyj-Hy-ARN" firstAttribute="trailing" secondItem="uGU-hX-WMi" secondAttribute="trailing" id="J5G-q6-dfX"/>
+                            <constraint firstItem="vyj-Hy-ARN" firstAttribute="trailing" secondItem="b3d-ri-B1f" secondAttribute="trailing" constant="20" id="Jq3-6a-Zi4"/>
+                            <constraint firstItem="b3d-ri-B1f" firstAttribute="leading" secondItem="zyQ-he-5Nd" secondAttribute="trailing" constant="20" id="MJD-Lu-be2"/>
+                            <constraint firstItem="uGU-hX-WMi" firstAttribute="top" secondItem="zyQ-he-5Nd" secondAttribute="bottom" constant="10" id="YSZ-z2-ayR"/>
+                            <constraint firstItem="uGU-hX-WMi" firstAttribute="leading" secondItem="vyj-Hy-ARN" secondAttribute="leading" id="bgW-Ue-jAt"/>
+                            <constraint firstItem="vyj-Hy-ARN" firstAttribute="bottom" secondItem="uGU-hX-WMi" secondAttribute="bottom" id="xNC-6D-aqh"/>
+                            <constraint firstItem="zyQ-he-5Nd" firstAttribute="top" secondItem="vyj-Hy-ARN" secondAttribute="top" constant="20" id="xRC-xU-jNA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vyj-Hy-ARN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="写真検索" id="nvh-F2-5qo"/>
+                    <connections>
+                        <outlet property="collectionView" destination="uGU-hX-WMi" id="9vO-e9-vnX"/>
+                        <outlet property="searchButton" destination="b3d-ri-B1f" id="Vhh-fh-FSG"/>
+                        <outlet property="tagsTextField" destination="zyQ-he-5Nd" id="7AB-b6-Oiw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvP-c0-fcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="112"/>
+        </scene>
+    </scenes>
+</document>

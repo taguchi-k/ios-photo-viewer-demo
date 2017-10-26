@@ -18,6 +18,7 @@ final class FavoritePhotoDao {
     ///
     /// - Parameter photoId: PhotoのID
     /// - Returns: FavoritePhotoオブジェクト
+    @discardableResult
     static func add(photoId: String, imageData: Data) -> FavoritePhoto {
 
         guard let id = dao.newId() else {
@@ -40,6 +41,14 @@ final class FavoritePhotoDao {
     /// - Parameter id: お気に入りID
     static func delete(id: Int) {
         guard let object = dao.findFirst(key: id as AnyObject) else { return }
+        dao.delete(d: object)
+    }
+
+    /// 指定したphotoIdのお気に入り写真を削除する
+    ///
+    /// - Parameter photoId:
+    static func delete(photoId: String) {
+        guard let object = find(photoId: photoId) else { return }
         dao.delete(d: object)
     }
 

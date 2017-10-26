@@ -25,8 +25,8 @@ class FavoritePhotoDaoTests: XCTestCase {
     func testAddFavoritePhoto() {
 
         let model = dummyModel()
-        _ = FavoritePhotoDao.add(photoId: model.photoId,
-                                 imageData: model.imageData)
+        FavoritePhotoDao.add(photoId: model.photoId,
+                             imageData: model.imageData)
         let data = NSKeyedArchiver.archivedData(withRootObject: ["test": "hoge"])
 
         verifyFavoritePhoto(id: 1, photoId: "photoId", imageData: data)
@@ -36,14 +36,21 @@ class FavoritePhotoDaoTests: XCTestCase {
     func testDeleteFavoritePhoto() {
 
         let model = dummyModel()
-        _ = FavoritePhotoDao.add(photoId: model.photoId,
-                                 imageData: model.imageData)
+        FavoritePhotoDao.add(photoId: model.photoId,
+                             imageData: model.imageData)
         FavoritePhotoDao.delete(id: 1)
 
         verifyCount(count: 0)
     }
 
-    /// 線削除できるか
+    /// 指定したphotoIdのお気に入り写真が削除できるか
+    func testDeleteFavoritePhotoByPhotoId() {
+        addDummyModels()
+        FavoritePhotoDao.delete(photoId: "photoId2")
+        verifyCount(count: 2)
+    }
+
+    /// 全削除できるか
     func testDeleteAllFavoritePhoto() {
         addDummyModels()
         FavoritePhotoDao.deleteAll()
@@ -59,11 +66,11 @@ class FavoritePhotoDaoTests: XCTestCase {
     /// 登録日時の降順でお気に入り写真が取得できるか
     func testFindAllFavoritePhotoForOrder() {
 
-        _ = FavoritePhotoDao.add(photoId: "photoId1", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId1", imageData: Data())
         sleep(1)
-        _ = FavoritePhotoDao.add(photoId: "photoId2", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId2", imageData: Data())
         sleep(1)
-        _ = FavoritePhotoDao.add(photoId: "photoId3", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId3", imageData: Data())
 
         let results = FavoritePhotoDao.findAll()
 
@@ -115,8 +122,8 @@ private extension FavoritePhotoDaoTests {
     }
 
     func addDummyModels() {
-        _ = FavoritePhotoDao.add(photoId: "photoId1", imageData: Data())
-        _ = FavoritePhotoDao.add(photoId: "photoId2", imageData: Data())
-        _ = FavoritePhotoDao.add(photoId: "photoId3", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId1", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId2", imageData: Data())
+        FavoritePhotoDao.add(photoId: "photoId3", imageData: Data())
     }
 }

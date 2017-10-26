@@ -9,16 +9,6 @@
 import Foundation
 import ObjectMapper
 
-/// 写真検索APIステータス
-enum SearchPhotoStatus {
-    case none
-    case loading
-    case noData
-    case normal(SearchPhotoResult)
-    case offline
-    case error(Error)
-}
-
 /// 写真検索API結果を通知するプロトコル
 protocol SearchPhotoLoadable{
     func setStatus(status: SearchPhotoStatus)
@@ -67,7 +57,7 @@ final class SearchPhotoAPI {
     private func hasPhotoList(result: SearchPhotoResult) -> SearchPhotoStatus{
 
         return (result.photos?.photo.count == 0) ?
-            SearchPhotoStatus.noData : SearchPhotoStatus.normal(result)
+            SearchPhotoStatus.noData : SearchPhotoStatus.loaded(result)
     }
 
     // MARK: - リクエスト回数の管理

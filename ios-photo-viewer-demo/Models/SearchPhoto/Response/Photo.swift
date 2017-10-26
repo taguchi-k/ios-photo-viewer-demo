@@ -26,13 +26,6 @@ struct Photo: Mappable {
         secret  <- map["secret"]
     }
 
-    /// 写真URLの文字列を返す
-    ///
-    /// - Returns: 写真URLの文字列
-    func photoURL() -> String {
-        return PhotoImageURLBuilder.create(photo: self)
-    }
-
     /// UIImageをDate?に変換する
     ///
     /// - Parameter image: UIImage

@@ -69,7 +69,7 @@ class SearchPhotoAPITests: XCTestCase {
             if let status = self.loadable.status {
 
                 switch status {
-                case .normal(let result) :
+                case .loaded(let result) :
                     XCTAssertNotNil(result)
                     XCTAssertTrue(result.photos!.photo.count > 0)
                     XCTAssertEqual(result.stat, "ok")
