@@ -54,6 +54,18 @@ final class SearchPhotoListViewController: UIViewController {
         collectionView.reloadData()
     }
 
+    fileprivate func manipulation() -> SVProgressHUD.ManipulationType {
+
+        let manipulation: SVProgressHUD.ManipulationType
+
+        if searchPhotoAPI.current() > 1 {
+            manipulation = SVProgressHUD.ManipulationType.permit
+        } else {
+            manipulation = SVProgressHUD.ManipulationType.prohibited
+        }
+        return manipulation
+    }
+
     // MARK: - Private
     private func setup() {
         addObserver()
@@ -75,15 +87,9 @@ final class SearchPhotoListViewController: UIViewController {
 
     private func toggleearchButtonIsEnabled() {
         guard let text = tagsTextField.text else { return }
-
         let isEnabled = text.characters.count > 0
         searchButton.isEnabled = isEnabled
-
-        if isEnabled {
-            searchButton.backgroundColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-        } else {
-            searchButton.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
-        }
+        searchButton.backgroundColor = isEnabled ? #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1) : #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
     }
 
     private func loadSearchPhoto(tags: String) {
@@ -92,18 +98,6 @@ final class SearchPhotoListViewController: UIViewController {
         self.tags = tags
         searchPhotoAPI.loadable = self
         searchPhotoAPI.load(tags: tags)
-    }
-
-    fileprivate func manipulation() -> SVProgressHUD.ManipulationType {
-
-        let manipulation: SVProgressHUD.ManipulationType
-
-        if searchPhotoAPI.current() > 1 {
-            manipulation = SVProgressHUD.ManipulationType.permit
-        } else {
-            manipulation = SVProgressHUD.ManipulationType.prohibited
-        }
-        return manipulation
     }
 }
 

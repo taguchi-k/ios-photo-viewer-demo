@@ -52,12 +52,11 @@ final class SearchPhotoListCollectionViewCell: UICollectionViewCell, JigglyAnima
     }
 
     private func setup(photoURL: String) {
-        guard let url = URL(string: photoURL) else {
-            fatalError("不正な写真URL")
-        }
+        guard let url = URL(string: photoURL) else { fatalError("不正な写真URL") }
         photoImageView.kf.setImage(with: url,
                                    placeholder: nil,
-                                   options: [.transition(ImageTransition.fade(0.3)), .keepCurrentImageWhileLoading],
+                                   options: [.transition(ImageTransition.fade(0.3)),
+                                             .keepCurrentImageWhileLoading],
                                    progressBlock: nil,
                                    completionHandler: nil)
     }

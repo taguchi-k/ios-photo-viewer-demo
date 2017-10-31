@@ -220,8 +220,6 @@
 			children = (
 				9669E3851F9CEFE5002743FB /* Controllers */,
 				9669E3841F9CEFDA002743FB /* Models */,
-				9669E39D1F9CF6F1002743FB /* SearchPhoto */,
-				9619238E1F9F6C0B003F2BF0 /* FavoritePhoto */,
 				9669E3831F9CEFC5002743FB /* Views */,
 				9607C5BA1F9CDAB700C857EA /* ios_photo_viewer_demoTests.swift */,
 				9607C5BC1F9CDAB700C857EA /* Info.plist */,
@@ -432,6 +430,8 @@
 		9669E3841F9CEFDA002743FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9669E39D1F9CF6F1002743FB /* SearchPhoto */,
+				9619238E1F9F6C0B003F2BF0 /* FavoritePhoto */,
 				9669E3921F9CF315002743FB /* FlickrBaseParamsBuilderTests.swift */,
 			);
 			path = Models;

@@ -55,9 +55,7 @@ final class SearchPhotoAPI {
     }
 
     private func hasPhotoList(result: SearchPhotoResult) -> SearchPhotoStatus{
-
-        return (result.photos?.photo.count == 0) ?
-            SearchPhotoStatus.noData : SearchPhotoStatus.loaded(result)
+        return (result.photos?.photo.count == 0) ? .noData : .loaded(result)
     }
 
     // MARK: - リクエスト回数の管理

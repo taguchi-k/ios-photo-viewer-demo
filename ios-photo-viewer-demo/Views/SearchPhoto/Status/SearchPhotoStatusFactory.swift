@@ -31,7 +31,6 @@ final class SearchPhotoStatusFactory: NSObject, SearchPhotoStatusType {
     }
 
     // MARK: - SearchPhotoStatusType
-
     func create(collectionView: UICollectionView,
                 indexPath: IndexPath,
                 photos: [Photo]) -> UICollectionViewCell {

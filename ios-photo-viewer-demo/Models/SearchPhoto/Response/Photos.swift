@@ -14,7 +14,7 @@ struct Photos: Mappable {
     var page = 0
     var pages = 0
     var perpage = 0
-    var photo: [Photo] = []
+    var photo = [Photo]()
 
     init?(map: Map){}
 
